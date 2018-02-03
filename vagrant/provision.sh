@@ -23,3 +23,4 @@ php -i | grep -i -E 'openssl|pdo|multibyte|tokenizer|xml' | grep -i support | se
 # install Composer, make it available as command
 curl -Ss https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/bin/composer
+composer -V
