@@ -20,6 +20,9 @@ sudo apt-get install -y php7.0-xml
 php -v
 php -i | grep -i -E 'openssl|pdo|multibyte|tokenizer|xml' | grep -i support | sed -e 's/^/PHP /'
 
+# install Unzip (required by Composer)
+sudo apt-get install -y unzip
+
 # install Composer, make it available as command
 curl -Ss https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/bin/composer
