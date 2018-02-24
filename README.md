@@ -1,5 +1,38 @@
 # Final Year Project Management System
 
+## Getting started
+
+### Development
+
+Requirements:
+
+* [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [HashiCorp Vagrant](https://www.vagrantup.com/downloads.html)
+
+To start the VM:
+
+1. Copy `.env.dev.example` as `.env`.
+2. Run the following commands:
+
+```bash
+vagrant up
+vagrant ssh
+cd /var/www/html/fypmgmt
+composer install
+php artisan migrate
+```
+
+To stop the VM, run either of these commands:
+
+* `vagrant suspend` to sleep.
+* `vagrant halt` to shutdown.
+* `vagrant destroy` to remove.
+
+## License
+
+MIT
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
