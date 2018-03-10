@@ -12,13 +12,15 @@ Requirements:
 To start the VM:
 
 1. Copy `.env.dev.example` as `.env`.
-2. Run the following commands:
+2. Run the following commands as admin:
 
 ```bash
 vagrant up
 vagrant ssh
 cd /var/www/html/fypmgmt
 composer install
+npm install
+npm run dev
 php artisan migrate
 ```
 

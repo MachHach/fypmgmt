@@ -14,6 +14,9 @@ sudo sed -i '$a deb http://nginx.org/packages/ubuntu/ trusty nginx' /etc/apt/sou
 sudo sed -i '$a deb-src http://nginx.org/packages/ubuntu/ trusty nginx' /etc/apt/sources.list
 sudo apt-get -q remove nginx-common
 
+# track Node.js packages (Node.js 8 LTS)
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
 # update package indices, upgrade packages
 sudo apt-get -q update
 sudo apt-get -q upgrade
@@ -45,11 +48,15 @@ sudo adduser --disabled-password --gecos "" --quiet fypmgmt
 sudo apt-get -q -y install nginx-full
 sudo service nginx start
 
+# install Node.js
+sudo apt-get -q -y install nodejs
+
 # output version
 php -v
 composer -V
 psql -V
 nginx -v
+node -v
 
 # grant full permission to "www-data" user (web server), for folders "storage" and "bootstrap/cache"
 sudo chgrp -R www-data /var/www/html/fypmgmt/storage

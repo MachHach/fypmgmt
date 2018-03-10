@@ -23,6 +23,11 @@ Homestead.json
 # Vagrant
 .vagrant
 
-# editor settings
+# Text editor settings
 .idea
 .vscode
+
+# Compiled assets
+public/css/app.css
+public/js/app.js
+public/mix-manifest.json
