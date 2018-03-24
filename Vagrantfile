@@ -63,6 +63,8 @@ Vagrant.configure("2") do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
+
+  # Allow symbolic links to host OS (required for Node modules to work)
   config.vm.provider "virtualbox" do |v|
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
   end
@@ -74,7 +76,24 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  # Provision the VM
   config.vm.provision "shell" do |s|
     s.path = "vagrant/provision.sh"
+  end
+  config.vm.provision "shell" do |s|
+    s.path = "vagrant/provision-php.sh"
+  end
+  config.vm.provision "shell" do |s|
+    s.path = "vagrant/provision-composer.sh"
+  end
+  config.vm.provision "shell" do |s|
+    s.path = "vagrant/provision-postgresql.sh"
+  end
+  config.vm.provision "shell" do |s|
+    s.path = "vagrant/provision-nginx.sh"
+  end
+  config.vm.provision "shell" do |s|
+    s.path = "vagrant/provision-nodejs.sh"
   end
 end
