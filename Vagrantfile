@@ -48,6 +48,10 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder ".", "/var/www/html/fypmgmt"
+  config.vm.synced_folder "./storage", "/var/www/html/fypmgmt/storage", 
+    owner: "www-data", group: "www-data", mount_options: ["dmode=775", "fmode=775"]
+  config.vm.synced_folder "./bootstrap/cache", "/var/www/html/fypmgmt/bootstrap/cache", 
+    owner: "www-data", group: "www-data", mount_options: ["dmode=775", "fmode=775"]
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
