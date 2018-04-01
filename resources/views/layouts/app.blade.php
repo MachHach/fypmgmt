@@ -23,13 +23,13 @@
                 </a>
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#app-navbar-collapse"
+                <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#app-navbar-collapse"
                      aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

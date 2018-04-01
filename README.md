@@ -21,8 +21,8 @@ vagrant up
 vagrant ssh
 cd /var/www/html/fypmgmt
 # Install project dependencies
-composer install
-npm install
+sudo composer install
+sudo npm install
 # Compile assets
 npm run dev
 # Generate security tokens
