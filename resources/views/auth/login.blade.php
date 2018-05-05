@@ -7,32 +7,47 @@
             <h1 class="text-center py-2">FYP MS</h1>
             <p class="text-center py-2">One-stop platform to manage your Final Year Project</p>
             
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
                 {{ csrf_field() }}
 
                 <div class="form-row">
                     <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2
-                    col-lg-6 offset-lg-3 col-xl-4 offset-xl-4{{ $errors->has('email') ? ' is-invalid' : '' }}">
+                    col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <input type="email" class="form-control" id="inputEmail" placeholder="E-mail address"
-                        name="email" value="{{ old('email') }}" required autofocus>  
-                        @if ($errors->has('email'))
-                            <span class="form-text">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
+                        name="email" value="{{ old('email') }}" required autofocus>
+                        <div class="invalid-feedback">
+                            Please provide a valid e-mail address.
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2
-                    col-lg-6 offset-lg-3 col-xl-4 offset-xl-4{{ $errors->has('password') ? ' is-invalid' : '' }}">
+                    col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <input type="password" class="form-control" id="inputPassword" placeholder="Password"
                         name="password" required>
+                        <div class="invalid-feedback">
+                            Please provide a password.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2
+                    col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        <div style="color:red;">
+                        @if ($errors->has('email'))
+                            <span class="form-text">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+
                         @if ($errors->has('password'))
                             <span class="form-text">
                                 <strong>{{ $errors->first('password') }}</strong>
                             </span>
                         @endif
+                        </div>
                     </div>
                 </div>
 
@@ -79,6 +94,24 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    var forms = document.getElementsByClassName('needs-validation');
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+            </script>
         </div>
     </div>
 </div>
